@@ -1,6 +1,6 @@
-# AutoKey Writer v0.1.0
+# AutoKey Writer v0.1.1
 
-首个可分发版本。
+发布流程与自动构建修正版。
 
 ## 包含内容
 
@@ -10,6 +10,7 @@
 - 支持 `Esc` 紧急停止
 - 支持权限状态检查与系统设置跳转
 - 提供 `.app` 与 `.zip` 打包产物
+- 已接入 GitHub Actions 自动构建与自动 Release
 
 ## 已知限制
 

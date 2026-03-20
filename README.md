@@ -1,7 +1,7 @@
 # AutoKey Writer
 
 一个 macOS 原生桌面小工具，用来把文本像人工打字一样逐字输入到当前激活窗口。
-当前版本：`0.1.0`
+当前版本：`0.1.1`
 
 ## 功能
 
@@ -28,7 +28,7 @@
 打包完成后可在：
 
 - `build/AutoKeyWriter.app`
-- `dist/AutoKeyWriter-0.1.0-macOS.zip`
+- `dist/AutoKeyWriter-0.1.1-macOS.zip`
 
 找到当前版本产物。
 
