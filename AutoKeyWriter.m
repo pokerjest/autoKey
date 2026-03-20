@@ -271,7 +271,7 @@ static NSString * const kSmartQuotesDefaultsKey = @"smartQuotes";
     [panel.contentView addSubview:self.maxIntervalField];
 
     self.smartQuotesCheckbox = [[NSButton alloc] initWithFrame:NSMakeRect(264, 96, 114, 24)];
-    [self.smartQuotesCheckbox setButtonType:NSSwitchButton];
+    [self.smartQuotesCheckbox setButtonType:NSButtonTypeSwitch];
     [self.smartQuotesCheckbox setTitle:@"智能引号修正"];
     [self.smartQuotesCheckbox setState:NSControlStateValueOff];
     [panel.contentView addSubview:self.smartQuotesCheckbox];

@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 AutoKeyWriter
 .DS_Store
+build/
+dist/
