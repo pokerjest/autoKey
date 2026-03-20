@@ -1,0 +1,32 @@
+name: Release AutoKeyWriter
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        shell: bash
+        run: |
+          VERSION="$(cat VERSION)"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build release package
+        run: ./build_release.sh
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: RELEASE_NOTES.md
+          files: dist/AutoKeyWriter-${{ steps.version.outputs.version }}-macOS.zip

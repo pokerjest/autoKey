@@ -1,0 +1,39 @@
+name: Build AutoKeyWriter
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        shell: bash
+        run: |
+          VERSION="$(cat VERSION)"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build release package
+        run: ./build_release.sh
+
+      - name: Upload app bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoKeyWriter-app-${{ steps.version.outputs.version }}
+          path: build/AutoKeyWriter.app
+
+      - name: Upload zip package
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoKeyWriter-zip-${{ steps.version.outputs.version }}
+          path: dist/AutoKeyWriter-${{ steps.version.outputs.version }}-macOS.zip
